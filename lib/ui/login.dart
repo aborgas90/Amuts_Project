@@ -16,54 +16,57 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 150,),
+            const SizedBox(
+              height: 150,
+            ),
             const Image(image: AssetImage('assets/images/amutslogo.png')),
-            const SizedBox(height: 150,),
+            const SizedBox(
+              height: 150,
+            ),
             // Button Login
             SizedBox(
               width: 343,
               height: 48,
               child: ElevatedButton(
-                  onPressed:(){},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/loginForm');
+                  },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(0, 185, 139, 1)
-                  ),
+                      backgroundColor: const Color.fromRGBO(0, 185, 139, 1)),
                   child: const Text(
                     "Login",
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white
-                        ),
-                )
-              ),
+                    style: TextStyle(fontSize: 17, color: Colors.white),
+                  )),
             ),
-             const SizedBox(height: 24,),
+            const SizedBox(
+              height: 24,
+            ),
             //Button Register
             SizedBox(
               width: 343,
               height: 48,
               child: ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(255,159,62,1)
-                  ),
-                  child: const Text(
-                    "Register",
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.white
-                    ),
-                  ),
-             ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(255, 159, 62, 1)),
+                child: const Text(
+                  "Register",
+                  style: TextStyle(fontSize: 17, color: Colors.white),
+                ),
+              ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             // Row Button Logo Connected Firebase
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Button Google 
+                // Button Google
                 GestureDetector(
-                  onTap: (){},
+                  onTap: () {},
                   child: const CircleAvatar(
                     radius: 28,
                     backgroundImage: AssetImage('assets/images/googlelogo.png'),
@@ -74,22 +77,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 // Button Facebook
                 GestureDetector(
-                  onTap: (){},
+                  onTap: () {},
                   child: const CircleAvatar(
                     radius: 28,
-                    backgroundImage: AssetImage('assets/images/facebooklogo.png'),
+                    backgroundImage:
+                        AssetImage('assets/images/facebooklogo.png'),
                   ),
                 )
               ],
             ),
-            const SizedBox(height: 50,),
+            const SizedBox(
+              height: 50,
+            ),
             // Term of Service Text
             const Text(
               'Term of service',
-              style: TextStyle(
-                fontSize: 11
-              ),
-              )
+              style: TextStyle(fontSize: 11),
+            )
           ],
         ),
       ),

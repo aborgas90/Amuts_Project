@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class RegisterPageForm extends StatefulWidget {
-  const RegisterPageForm({Key? key}) : super(key: key);
+class LoginPageForm extends StatefulWidget {
+  const LoginPageForm({Key? key}) : super(key: key);
 
   @override
-  State<RegisterPageForm> createState() => _RegisterPageForm();
+  State<LoginPageForm> createState() => _LoginPageForm();
 }
 
-class _RegisterPageForm extends State<RegisterPageForm> {
+class _LoginPageForm extends State<LoginPageForm> {
   bool passInvisible = false;
-  bool confirmPassInvisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +27,10 @@ class _RegisterPageForm extends State<RegisterPageForm> {
         child: ListView(
           children: [
             const Text(
-              'Register',
-              style: TextStyle(fontSize: 28),
+              'Login',
+              style: TextStyle(
+                fontSize: 28,
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -47,21 +49,6 @@ class _RegisterPageForm extends State<RegisterPageForm> {
             ),
             const SizedBox(
               height: 10,
-            ),
-            //Username Field
-            const Text(
-              'Username',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            ),
-            TextFormField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.perm_identity),
-                  border: UnderlineInputBorder(),
-                  labelText: ""),
-            ),
-            const SizedBox(
-              height: 35,
             ),
             const Text(
               'Password',
@@ -85,30 +72,18 @@ class _RegisterPageForm extends State<RegisterPageForm> {
                   border: UnderlineInputBorder(),
                   labelText: ""),
             ),
-            const Text(
-              'Confirm Password',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            const SizedBox(
+              height: 10,
             ),
-            //Password Field
-            TextFormField(
-              obscureText: !confirmPassInvisible,
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.check_circle_outline_rounded),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        confirmPassInvisible = !confirmPassInvisible;
-                      });
-                    },
-                    icon: Icon(confirmPassInvisible
-                        ? Icons.visibility
-                        : Icons.visibility_off),
-                  ),
-                  border: UnderlineInputBorder(),
-                  labelText: ""),
+            Container(
+              alignment: Alignment.bottomRight,
+              child: TextButton(
+                onPressed: () {},
+                child: const Text("Forget Password?"),
+              ),
             ),
             const SizedBox(
-              height: 120,
+              height: 250,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(

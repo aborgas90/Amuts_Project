@@ -1,4 +1,6 @@
 import 'package:amuts_project/ui/login.dart';
+import 'package:amuts_project/ui/loginform.dart';
+import 'package:amuts_project/ui/register.dart';
 import 'package:amuts_project/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +20,9 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       initialRoute: '/',
       routes: {
-        '/login' :  (context) => const LoginScreen()
+        '/login' :  (context) => const LoginScreen(),
+        '/loginForm' : (context) => const LoginPageForm(),
+        '/register' :(context) =>  const RegisterPageForm()
       },
     );
   }
