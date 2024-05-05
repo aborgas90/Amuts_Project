@@ -104,7 +104,7 @@ class _RegisterPageForm extends State<RegisterPageForm> {
                         ? Icons.visibility
                         : Icons.visibility_off),
                   ),
-                  border: UnderlineInputBorder(),
+                  border: const UnderlineInputBorder(),
                   labelText: ""),
             ),
             const SizedBox(
@@ -116,7 +116,7 @@ class _RegisterPageForm extends State<RegisterPageForm> {
               ),
               onPressed: () {},
               child: const Text(
-                "Sign In",
+                "Sign Up",
                 style: TextStyle(fontSize: 17, color: Colors.white),
               ),
             ),
@@ -127,10 +127,10 @@ class _RegisterPageForm extends State<RegisterPageForm> {
                     style: TextStyle(fontSize: 13, color: Colors.black)),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/register');
+                    Navigator.pushNamed(context, '/login');
                   },
                   child: const Text(
-                    "Sign up Here",
+                    "Sign in Here",
                     style: TextStyle(
                         fontSize: 13, color: Color.fromRGBO(255, 159, 62, 1)),
                   ),

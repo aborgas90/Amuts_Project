@@ -1,7 +1,9 @@
+import 'package:amuts_project/ui/forgetpassword.dart';
 import 'package:amuts_project/ui/login.dart';
 import 'package:amuts_project/ui/loginform.dart';
 import 'package:amuts_project/ui/register.dart';
 import 'package:amuts_project/ui/splash_screen.dart';
+import 'package:amuts_project/ui/verificationPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login' :  (context) => const LoginScreen(),
         '/loginForm' : (context) => const LoginPageForm(),
-        '/register' :(context) =>  const RegisterPageForm()
+        '/register' :(context) =>  const RegisterPageForm(),
+        '/forgetpassword' : (context) => const forgetPasswordScreen(),
+        '/verificationOTP' : (context) => const VerificationOTP()
       },
     );
   }

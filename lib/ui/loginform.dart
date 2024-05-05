@@ -78,7 +78,9 @@ class _LoginPageForm extends State<LoginPageForm> {
             Container(
               alignment: Alignment.bottomRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/forgetpassword');
+                },
                 child: const Text("Forget Password?"),
               ),
             ),
