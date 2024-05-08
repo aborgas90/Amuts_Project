@@ -1,18 +1,20 @@
-import 'package:amuts_project/ui/forgetpassword.dart';
-import 'package:amuts_project/ui/login.dart';
-import 'package:amuts_project/ui/loginform.dart';
-import 'package:amuts_project/ui/register.dart';
-import 'package:amuts_project/ui/splash_screen.dart';
-import 'package:amuts_project/ui/verificationPage.dart';
+import 'package:amuts_project/ui/ForgetPassword.dart';
+import 'package:amuts_project/ui/HomeScreen.dart';
+import 'package:amuts_project/ui/Login.dart';
+import 'package:amuts_project/ui/MainMenu.dart';
+import 'package:amuts_project/ui/Register.dart';
+import 'package:amuts_project/ui/SplashScreen.dart';
+import 'package:amuts_project/ui/VerificationPage.dart';
 import 'package:flutter/material.dart';
 
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,13 +22,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Amuts",
       home: const SplashScreen(),
+      // theme: ThemeData(
+      //   textTheme: GoogleFonts.poppinsTextTheme()
+      // ),
       initialRoute: '/',
       routes: {
-        '/login' :  (context) => const LoginScreen(),
-        '/loginForm' : (context) => const LoginPageForm(),
+        '/homescreen' :  (context) => const HomeScreen(),
+        '/login' : (context) => const LoginPageForm(),
         '/register' :(context) =>  const RegisterPageForm(),
         '/forgetpassword' : (context) => const forgetPasswordScreen(),
-        '/verificationOTP' : (context) => const VerificationOTP()
+        '/verificationOTP' : (context) => const VerificationOTP(),
+        '/mainmenu' : (context) => const mainMenu()
       },
     );
   }

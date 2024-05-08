@@ -16,7 +16,7 @@ class _RegisterPageForm extends State<RegisterPageForm> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/login');
+            Navigator.pushNamed(context, '/homescreen');
           },
           icon: Icon(Icons.arrow_back),
         ),
@@ -127,7 +127,7 @@ class _RegisterPageForm extends State<RegisterPageForm> {
                     style: TextStyle(fontSize: 13, color: Colors.black)),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/login');
+                    Navigator.pushNamed(context, '/homescreen');
                   },
                   child: const Text(
                     "Sign in Here",
