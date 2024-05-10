@@ -59,15 +59,19 @@ class _mainMenu extends State<mainMenu> {
                       children: [
                         Text(
                           "Selamat Datang Sumbul,",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                          ),
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white),
                         ),
                         Text(
                           "Tetaplah jaga kebersihan Dengan Menukarkan Sampahmu Disini",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.w500),
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
                         ),
                       ],
                     ),
@@ -80,7 +84,7 @@ class _mainMenu extends State<mainMenu> {
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Colors.white),
                       width: 343,
-                      height: 154,
+                      height: 165,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -187,6 +191,7 @@ class _mainMenu extends State<mainMenu> {
                               ),
                               Text(
                                 'Setor Sampah',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: 16),
                               )
@@ -229,6 +234,7 @@ class _mainMenu extends State<mainMenu> {
                               ),
                               Text(
                                 'Laporan Sampah',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: 16),
                               )
@@ -267,6 +273,7 @@ class _mainMenu extends State<mainMenu> {
                             ),
                             Text(
                               'Truk Sampah',
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.w600, fontSize: 16),
                             )
@@ -305,6 +312,7 @@ class _mainMenu extends State<mainMenu> {
                               ),
                               Text(
                                 'Kehadiran',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: 16),
                               )

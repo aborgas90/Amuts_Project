@@ -9,7 +9,6 @@ import 'package:amuts_project/ui/SplashScreen.dart';
 import 'package:amuts_project/ui/VerificationPage.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
@@ -29,16 +28,15 @@ class MyApp extends StatelessWidget {
       // ),
       initialRoute: '/',
       routes: {
-        '/homescreen' :  (context) => const HomeScreen(),
-        '/login' : (context) => const LoginPageForm(),
-        '/register' :(context) =>  const RegisterPageForm(),
-        '/forgetpassword' : (context) => const forgetPasswordScreen(),
-        '/verificationOTP' : (context) => const VerificationOTP(),
-        '/mainmenu' : (context) => const mainMenu(),
-        '/setorsampah' : (context) => const SetorSampah(),
-        '/laporansampah' : (context) => const LaporanSampah(),
+        '/homescreen': (context) => const HomeScreen(),
+        '/login': (context) => const LoginPageForm(),
+        '/register': (context) => const RegisterPageForm(),
+        '/forgetpassword': (context) => const forgetPasswordScreen(),
+        '/verificationOTP': (context) => const VerificationOTP(),
+        '/mainmenu': (context) => const mainMenu(),
+        '/setorsampah': (context) => const SetorSampah(),
+        '/laporansampah': (context) => const LaporanSampah(),
       },
     );
   }
 }
-

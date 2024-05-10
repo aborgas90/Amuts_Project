@@ -19,7 +19,9 @@ class _LoginPageForm extends State<LoginPageForm> {
           onPressed: () {
             Navigator.pushNamed(context, '/homescreen');
           },
-          icon: const Icon(Icons.arrow_back,),
+          icon: const Icon(
+            Icons.arrow_back,
+          ),
         ),
         backgroundColor: Colors.white,
       ),
@@ -42,7 +44,6 @@ class _LoginPageForm extends State<LoginPageForm> {
             ),
             //email Field
             TextFormField(
-              obscureText: true,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.email_outlined),
                   border: UnderlineInputBorder(),
