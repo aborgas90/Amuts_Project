@@ -1,8 +1,10 @@
 import 'package:amuts_project/ui/ForgetPassword.dart';
 import 'package:amuts_project/ui/HomeScreen.dart';
+import 'package:amuts_project/ui/LaporanSampah.dart';
 import 'package:amuts_project/ui/Login.dart';
 import 'package:amuts_project/ui/MainMenu.dart';
 import 'package:amuts_project/ui/Register.dart';
+import 'package:amuts_project/ui/SetorSampah.dart';
 import 'package:amuts_project/ui/SplashScreen.dart';
 import 'package:amuts_project/ui/VerificationPage.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,9 @@ class MyApp extends StatelessWidget {
         '/register' :(context) =>  const RegisterPageForm(),
         '/forgetpassword' : (context) => const forgetPasswordScreen(),
         '/verificationOTP' : (context) => const VerificationOTP(),
-        '/mainmenu' : (context) => const mainMenu()
+        '/mainmenu' : (context) => const mainMenu(),
+        '/setorsampah' : (context) => const SetorSampah(),
+        '/laporansampah' : (context) => const LaporanSampah(),
       },
     );
   }

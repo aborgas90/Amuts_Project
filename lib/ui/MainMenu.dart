@@ -1,9 +1,7 @@
-import 'dart:ui';
-
+import 'package:amuts_project/component/SettingsMenu.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:popover/popover.dart';
 
 class mainMenu extends StatefulWidget {
   const mainMenu({Key? key}) : super(key: key);
@@ -25,19 +23,31 @@ class _mainMenu extends State<mainMenu> {
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Column(
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 119,
                           height: 44,
                           child: Image(
                             image: AssetImage('assets/images/amutslogo.png'),
                           ),
                         ),
-                        Icon(
-                          BootstrapIcons.three_dots_vertical,
-                          color: Colors.white,
+                        GestureDetector(
+                          child: Icon(BootstrapIcons.three_dots_vertical),
+                          onTap: () {
+                            showPopover(
+                              context: context,
+                              bodyBuilder: (context) => SettingsMenu(),
+                              onPop: () => print('Popover was popped!'),
+                              direction: PopoverDirection.top,
+                              backgroundColor: Colors.white,
+                              width: 200,
+                              height: 400,
+                              arrowHeight: 15,
+                              arrowWidth: 30,
+                            );
+                          },
                         )
                       ],
                     ),
@@ -141,78 +151,89 @@ class _mainMenu extends State<mainMenu> {
                     mainAxisSpacing: 20,
                     children: <Widget>[
                       //Setor Sampah
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            colors: [
-                              Color.fromRGBO(10, 196, 186, 1),
-                              Color.fromARGB(43, 84, 231, 145)
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/setorsampah');
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [
+                                Color.fromRGBO(10, 196, 186, 1),
+                                Color.fromARGB(43, 84, 231, 145)
+                              ],
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50)),
+                                  color: Color.fromRGBO(108, 199, 191, 1),
+                                ), // Atur warna latar belakang menjadi hijau
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: Image.asset(
+                                    'assets/images/setorsampah.png',
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                'Setor Sampah',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 16),
+                              )
                             ],
                           ),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(50)),
-                                color: Color.fromRGBO(108, 199, 191, 1),
-                              ), // Atur warna latar belakang menjadi hijau
-                              child: SizedBox(
-                                width: 50,
-                                height: 50,
-                                child: Image.asset(
-                                  'assets/images/setorsampah.png',
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'Setor Sampah',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 16),
-                            )
-                          ],
-                        ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(50)),
-                                gradient: LinearGradient(
-                                    begin: Alignment.center,
-                                    end: Alignment.center,
-                                    colors: <Color>[
-                                      Color.fromARGB(255, 49, 105, 103),
-                                      Color.fromARGB(255, 213, 235, 227),
-                                    ]),
-                              ), // Atur warna latar belakang menjadi hijau
-                              child: SizedBox(
-                                width: 60,
-                                height: 50,
-                                child: Image(
-                                  image: AssetImage(
-                                      'assets/images/laporansampah.png'),
+                      //Laporan Sampah
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/laporansampah');
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.white,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50)),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.center,
+                                      end: Alignment.center,
+                                      colors: <Color>[
+                                        Color.fromARGB(255, 49, 105, 103),
+                                        Color.fromARGB(255, 213, 235, 227),
+                                      ]),
+                                ), // Atur warna latar belakang menjadi hijau
+                                child: SizedBox(
+                                  width: 60,
+                                  height: 50,
+                                  child: Image(
+                                    image: AssetImage(
+                                        'assets/images/laporansampah.png'),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              'Laporan Sampah',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 16),
-                            )
-                          ],
+                              Text(
+                                'Laporan Sampah',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 16),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       Container(
@@ -252,40 +273,43 @@ class _mainMenu extends State<mainMenu> {
                           ],
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(50)),
-                                gradient: LinearGradient(
-                                    begin: Alignment.center,
-                                    end: Alignment.center,
-                                    colors: <Color>[
-                                      Color.fromARGB(255, 49, 105, 103),
-                                      Color.fromARGB(255, 213, 235, 227),
-                                    ]),
-                              ), // Atur warna latar belakang menjadi hijau
-                              child: SizedBox(
-                                width: 50,
-                                height: 50,
-                                child: Image(
-                                  image:
-                                      AssetImage('assets/images/kehadiran.png'),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.white,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50)),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.center,
+                                      end: Alignment.center,
+                                      colors: <Color>[
+                                        Color.fromARGB(255, 49, 105, 103),
+                                        Color.fromARGB(255, 213, 235, 227),
+                                      ]),
+                                ), // Atur warna latar belakang menjadi hijau
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: Image(
+                                    image: AssetImage(
+                                        'assets/images/kehadiran.png'),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              'Kehadiran',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 16),
-                            )
-                          ],
+                              Text(
+                                'Kehadiran',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 16),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ],
