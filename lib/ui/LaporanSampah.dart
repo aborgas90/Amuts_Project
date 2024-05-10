@@ -17,8 +17,21 @@ class _LaporanSampah extends State<LaporanSampah> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: (const Text('Laporan Sampah')),
-        backgroundColor: const Color.fromRGBO(0, 185, 139, 1),
+        automaticallyImplyLeading: false,
+        title: ( const Text(
+          'Laporan Sampah',
+          style: TextStyle(color: Colors.white),
+        )),
+        backgroundColor: Color.fromRGBO(0, 185, 139, 1),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/mainmenu');
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: const Column(
         children: [

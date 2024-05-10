@@ -14,13 +14,13 @@ class _RegisterPageForm extends State<RegisterPageForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
             Navigator.pushNamed(context, '/homescreen');
           },
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, ),
         ),
-        backgroundColor: Colors.white,
       ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 30, vertical: 3),

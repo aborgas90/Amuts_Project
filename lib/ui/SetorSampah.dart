@@ -17,8 +17,21 @@ class _SetorSampah extends State<SetorSampah> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: (Text('Setor Sampah')),
+        automaticallyImplyLeading: false,
+        title: ( const Text(
+          'Setor Sampah',
+          style: TextStyle(color: Colors.white),
+        )),
         backgroundColor: Color.fromRGBO(0, 185, 139, 1),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/mainmenu');
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -75,8 +88,7 @@ class _SetorSampah extends State<SetorSampah> {
                     hint: const Text("Pilih Jenis sampah"),
                     value: dropdownValue,
                     decoration: const InputDecoration(
-                      prefixIcon: Icon(BootstrapIcons.boxes
-                      ),
+                      prefixIcon: Icon(BootstrapIcons.boxes),
                     ),
                     onChanged: (String? newValue) {
                       setState(() {
@@ -89,7 +101,8 @@ class _SetorSampah extends State<SetorSampah> {
                         child: Container(
                           width: 100,
                           child: Text(
-                            value,),
+                            value,
+                          ),
                         ),
                       );
                     }).toList(),

@@ -15,13 +15,11 @@ class _LoginPageForm extends State<LoginPageForm> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          color: Color.fromARGB(255, 228, 228, 228),
           onPressed: () {
             Navigator.pushNamed(context, '/homescreen');
           },
-          icon: const Icon(Icons.arrow_back,),
+          icon: Icon(Icons.arrow_back),
         ),
-        backgroundColor: Colors.white,
       ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 30, vertical: 3),

@@ -12,6 +12,7 @@ class mainMenu extends StatefulWidget {
 
 class _mainMenu extends State<mainMenu> {
   int myindex = 0;
+  int? tapindex;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,21 +34,8 @@ class _mainMenu extends State<mainMenu> {
                             image: AssetImage('assets/images/amutslogo.png'),
                           ),
                         ),
-                        GestureDetector(
-                          child: Icon(BootstrapIcons.three_dots_vertical),
-                          onTap: () {
-                            showPopover(
-                              context: context,
-                              bodyBuilder: (context) => SettingsMenu(),
-                              onPop: () => print('Popover was popped!'),
-                              direction: PopoverDirection.top,
-                              backgroundColor: Colors.white,
-                              width: 200,
-                              height: 400,
-                              arrowHeight: 15,
-                              arrowWidth: 30,
-                            );
-                          },
+                        SizedBox(
+                          child: PopMenu(),
                         )
                       ],
                     ),
@@ -149,6 +137,7 @@ class _mainMenu extends State<mainMenu> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
+                    shrinkWrap: true,
                     children: <Widget>[
                       //Setor Sampah
                       InkWell(
@@ -350,5 +339,30 @@ class _mainMenu extends State<mainMenu> {
                 label: "Profile",
               ),
             ]));
+  }
+}
+
+class PopMenu extends StatelessWidget {
+  PopMenu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Icon(
+        Icons.more_vert,
+        color: Colors.blue,
+      ),
+      onTap: () async {
+        await showPopover(
+            backgroundColor: Colors.white,
+            context: context,
+            constraints: const BoxConstraints(maxHeight: 200),
+            transitionDuration: const Duration(milliseconds: 150),
+            width: 200,
+            height: 170,
+            direction: PopoverDirection.bottom,
+            bodyBuilder: (_) => SettingsMenu());
+      },
+    );
   }
 }
