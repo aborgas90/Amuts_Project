@@ -39,7 +39,6 @@ class _RegisterPageForm extends State<RegisterPageForm> {
             ),
             //email Field
             TextFormField(
-              obscureText: true,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.email_outlined),
                   border: UnderlineInputBorder(),
@@ -54,7 +53,6 @@ class _RegisterPageForm extends State<RegisterPageForm> {
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
             TextFormField(
-              obscureText: true,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.perm_identity),
                   border: UnderlineInputBorder(),
