@@ -193,7 +193,9 @@ class _mainMenu extends State<mainMenu> {
                                 'Setor Sampah',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 16),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Colors.white),
                               )
                             ],
                           ),
