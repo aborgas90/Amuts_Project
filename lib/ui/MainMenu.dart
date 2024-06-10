@@ -3,6 +3,8 @@ import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:popover/popover.dart';
 
+enum ButtonState { none, setorsampah, laporansampah, truksampah, kehadiran }
+
 class mainMenu extends StatefulWidget {
   const mainMenu({Key? key}) : super(key: key);
 
@@ -13,6 +15,17 @@ class mainMenu extends StatefulWidget {
 class _mainMenu extends State<mainMenu> {
   int myindex = 0;
   int? tapindex;
+  ButtonState _buttonState = ButtonState.none;
+
+  void _handleButtonClick(ButtonState state, String route) {
+    setState(() {
+      _buttonState = state;
+    });
+    Future.delayed(Duration(milliseconds: 250), () {
+      Navigator.pushNamed(context, route);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,19 +158,23 @@ class _mainMenu extends State<mainMenu> {
                     children: <Widget>[
                       //Setor Sampah
                       InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/setorsampah');
-                        },
+                        onTap: () => _handleButtonClick(
+                            ButtonState.setorsampah, '/setorsampah'),
                         child: Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               begin: Alignment.topRight,
                               end: Alignment.bottomLeft,
-                              colors: [
-                                Color.fromRGBO(10, 196, 186, 1),
-                                Color.fromARGB(43, 84, 231, 145)
-                              ],
+                              colors: _buttonState == ButtonState.setorsampah
+                                  ? [
+                                      Color.fromRGBO(10, 196, 186, 1),
+                                      Color.fromARGB(43, 84, 231, 145)
+                                    ]
+                                  : [
+                                      Color.fromARGB(255, 255, 255, 255),
+                                      Color.fromARGB(255, 255, 255, 255)
+                                    ],
                             ),
                           ),
                           child: Column(
@@ -171,10 +188,12 @@ class _mainMenu extends State<mainMenu> {
                                   color: Color.fromRGBO(108, 199, 191, 1),
                                 ), // Atur warna latar belakang menjadi hijau
                                 child: SizedBox(
-                                  width: 50,
-                                  height: 50,
+                                  width: 75,
+                                  height: 75,
                                   child: Image.asset(
-                                    'assets/images/setorsampah.png',
+                                    _buttonState == ButtonState.setorsampah
+                                        ? 'assets/images/setorsampah2.png'
+                                        : 'assets/images/setorsampah.png',
                                   ),
                                 ),
                               ),
@@ -184,7 +203,10 @@ class _mainMenu extends State<mainMenu> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16,
-                                    color: Colors.white),
+                                    color:
+                                        _buttonState == ButtonState.setorsampah
+                                            ? Colors.white
+                                            : Colors.black),
                               )
                             ],
                           ),
@@ -192,12 +214,25 @@ class _mainMenu extends State<mainMenu> {
                       ),
                       //Laporan Sampah
                       InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/laporansampah');
-                        },
+                        onTap: () => _handleButtonClick(
+                            ButtonState.laporansampah, '/laporansampah'),
                         child: Container(
                           padding: const EdgeInsets.all(8),
-                          color: Colors.white,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: _buttonState == ButtonState.laporansampah
+                                  ? [
+                                      Color.fromRGBO(10, 196, 186, 1),
+                                      Color.fromARGB(43, 84, 231, 145)
+                                    ]
+                                  : [
+                                      Color.fromARGB(255, 255, 255, 255),
+                                      Color.fromARGB(255, 255, 255, 255)
+                                    ],
+                            ),
+                          ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -206,20 +241,15 @@ class _mainMenu extends State<mainMenu> {
                                   shape: BoxShape.rectangle,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(50)),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.center,
-                                      end: Alignment.center,
-                                      colors: <Color>[
-                                        Color.fromARGB(255, 49, 105, 103),
-                                        Color.fromARGB(255, 213, 235, 227),
-                                      ]),
+                                  color: Color.fromRGBO(108, 199, 191, 1),
                                 ), // Atur warna latar belakang menjadi hijau
                                 child: SizedBox(
-                                  width: 60,
-                                  height: 50,
-                                  child: Image(
-                                    image: AssetImage(
-                                        'assets/images/laporansampah.png'),
+                                  width: 75,
+                                  height: 75,
+                                  child: Image.asset(
+                                    _buttonState == ButtonState.laporansampah
+                                        ? 'assets/images/laporansampah2.png'
+                                        : 'assets/images/laporansampah.png',
                                   ),
                                 ),
                               ),
@@ -227,55 +257,37 @@ class _mainMenu extends State<mainMenu> {
                                 'Laporan Sampah',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 16),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: _buttonState ==
+                                            ButtonState.laporansampah
+                                        ? Colors.white
+                                        : Colors.black),
                               )
                             ],
                           ),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                gradient: LinearGradient(
-                                    begin: Alignment.center,
-                                    end: Alignment.center,
-                                    colors: <Color>[
-                                      Color.fromARGB(255, 49, 105, 103),
-                                      Color.fromARGB(255, 213, 235, 227),
-                                    ]),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(50)),
-                                color: Color.fromRGBO(10, 196, 186, 1),
-                              ), // Atur warna latar belakang menjadi hijau
-                              child: SizedBox(
-                                width: 50,
-                                height: 50,
-                                child: Image(
-                                  image: AssetImage(
-                                      'assets/images/truksampah.png'),
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'Truk Sampah',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 16),
-                            )
-                          ],
-                        ),
-                      ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () => _handleButtonClick(
+                            ButtonState.truksampah, '/comingsoon'),
                         child: Container(
                           padding: const EdgeInsets.all(8),
-                          color: Colors.white,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: _buttonState == ButtonState.truksampah
+                                  ? [
+                                      Color.fromRGBO(10, 196, 186, 1),
+                                      Color.fromARGB(43, 84, 231, 145)
+                                    ]
+                                  : [
+                                      Color.fromARGB(255, 255, 255, 255),
+                                      Color.fromARGB(255, 255, 255, 255)
+                                    ],
+                            ),
+                          ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -284,20 +296,70 @@ class _mainMenu extends State<mainMenu> {
                                   shape: BoxShape.rectangle,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(50)),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.center,
-                                      end: Alignment.center,
-                                      colors: <Color>[
-                                        Color.fromARGB(255, 49, 105, 103),
-                                        Color.fromARGB(255, 213, 235, 227),
-                                      ]),
+                                  color: Color.fromRGBO(108, 199, 191, 1),
                                 ), // Atur warna latar belakang menjadi hijau
                                 child: SizedBox(
-                                  width: 50,
-                                  height: 50,
-                                  child: Image(
-                                    image: AssetImage(
-                                        'assets/images/kehadiran.png'),
+                                  width: 75,
+                                  height: 75,
+                                  child: Image.asset(
+                                    _buttonState == ButtonState.truksampah
+                                        ? 'assets/images/truksampah2.png'
+                                        : 'assets/images/truksampah.png',
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                'Truk Sampah',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color:
+                                        _buttonState == ButtonState.truksampah
+                                            ? Colors.white
+                                            : Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () => _handleButtonClick(
+                            ButtonState.kehadiran, '/comingsoon'),
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: _buttonState == ButtonState.kehadiran
+                                  ? [
+                                      Color.fromRGBO(10, 196, 186, 1),
+                                      Color.fromARGB(43, 84, 231, 145)
+                                    ]
+                                  : [
+                                      Color.fromARGB(255, 255, 255, 255),
+                                      Color.fromARGB(255, 255, 255, 255)
+                                    ],
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50)),
+                                  color: Color.fromRGBO(108, 199, 191, 1),
+                                ), // Atur warna latar belakang menjadi hijau
+                                child: SizedBox(
+                                  width: 75,
+                                  height: 75,
+                                  child: Image.asset(
+                                    _buttonState == ButtonState.kehadiran
+                                        ? 'assets/images/kehadiran2.png'
+                                        : 'assets/images/kehadiran.png',
                                   ),
                                 ),
                               ),
@@ -305,7 +367,11 @@ class _mainMenu extends State<mainMenu> {
                                 'Kehadiran',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 16),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: _buttonState == ButtonState.kehadiran
+                                        ? Colors.white
+                                        : Colors.black),
                               )
                             ],
                           ),

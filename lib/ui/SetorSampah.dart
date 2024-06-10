@@ -18,14 +18,15 @@ class _SetorSampah extends State<SetorSampah> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: ( const Text(
+        title: (const Text(
           'Setor Sampah',
           style: TextStyle(color: Colors.white),
         )),
         backgroundColor: Color.fromRGBO(0, 185, 139, 1),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/mainmenu');
+            //Navigator.pushNamed(context, '/mainmenu');
+            Navigator.pop(context);
           },
           icon: Icon(
             Icons.arrow_back,

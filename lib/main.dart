@@ -7,6 +7,8 @@ import 'package:amuts_project/ui/Register.dart';
 import 'package:amuts_project/ui/SetorSampah.dart';
 import 'package:amuts_project/ui/SplashScreen.dart';
 import 'package:amuts_project/ui/VerificationPage.dart';
+import 'package:amuts_project/ui/comingsoon.dart';
+import 'package:amuts_project/ui/404.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/mainmenu': (context) => const mainMenu(),
         '/setorsampah': (context) => const SetorSampah(),
         '/laporansampah': (context) => const LaporanSampah(),
+        '/comingsoon': (context) => const ComingSoon(),
       },
     );
   }
