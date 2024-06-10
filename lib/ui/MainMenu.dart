@@ -392,6 +392,21 @@ class _mainMenu extends State<mainMenu> {
             onTap: (index) {
               setState(() {
                 myindex = index;
+                // Check which index is tapped and navigate accordingly
+                switch (index) {
+                  case 0:
+                    Navigator.pushNamed(context, '/context');
+                    break;
+                  case 1:
+                    Navigator.pushNamed(context, '/comingsoon');
+                    break;
+                  case 2:
+                    Navigator.pushNamed(context, '/comingsoon');
+                    break;
+                  case 3:
+                    Navigator.pushNamed(context, '/comingsoon');
+                    break;
+                }
               });
             },
             currentIndex: myindex,
