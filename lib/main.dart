@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
         '/setorsampah': (context) => const SetorSampah(),
         '/laporansampah': (context) => const LaporanSampah(),
         '/comingsoon': (context) => const ComingSoon(),
+        '/404': (context) => const NotFound(),
       },
     );
   }
