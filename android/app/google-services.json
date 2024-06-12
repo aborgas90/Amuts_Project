@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1092674861696",
+    "project_id": "amuts-project",
+    "storage_bucket": "amuts-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092674861696:android:79ada35efff48e11380465",
+        "android_client_info": {
+          "package_name": "com.example.amuts_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3t18msLwTJDhYAnZtoi91UnkbQhYocug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

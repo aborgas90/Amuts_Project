@@ -102,7 +102,9 @@ class _VerificationOTPState extends State<VerificationOTP> {
                 ],
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -112,9 +114,7 @@ class _VerificationOTPState extends State<VerificationOTP> {
                 Text(
                   "4.36 .. ",
                   style: TextStyle(
-                    fontSize: 13,
-                    color: Color.fromRGBO(0, 185, 139, 1)
-                  ),
+                      fontSize: 13, color: Color.fromRGBO(0, 185, 139, 1)),
                 ),
               ],
             ),

@@ -1,16 +1,19 @@
-import 'package:amuts_project/ui/ForgetPassword.dart';
+import 'package:amuts_project/bloc/login/login_cubit.dart';
+import 'package:amuts_project/bloc/register/register_cubit.dart';
+import 'package:amuts_project/firebase_options.dart';
 import 'package:amuts_project/ui/HomeScreen.dart';
-import 'package:amuts_project/ui/LaporanSampah.dart';
-import 'package:amuts_project/ui/Login.dart';
-import 'package:amuts_project/ui/MainMenu.dart';
-import 'package:amuts_project/ui/Register.dart';
-import 'package:amuts_project/ui/SetorSampah.dart';
-import 'package:amuts_project/ui/SplashScreen.dart';
-import 'package:amuts_project/ui/VerificationPage.dart';
+import 'package:amuts_project/ui/main/MainMenu.dart';
+import 'package:amuts_project/utils/routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -19,24 +22,32 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Amuts",
-      home: const SplashScreen(),
-      // theme: ThemeData(
-      //   textTheme: GoogleFonts.poppinsTextTheme()
-      // ),
-      initialRoute: '/',
-      routes: {
-        '/homescreen': (context) => const HomeScreen(),
-        '/login': (context) => const LoginPageForm(),
-        '/register': (context) => const RegisterPageForm(),
-        '/forgetpassword': (context) => const forgetPasswordScreen(),
-        '/verificationOTP': (context) => const VerificationOTP(),
-        '/mainmenu': (context) => const mainMenu(),
-        '/setorsampah': (context) => const SetorSampah(),
-        '/laporansampah': (context) => const LaporanSampah(),
-      },
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => LoginCubit()),
+          BlocProvider(create: (context) => RegisterCubit())
+        ],
+        child: MaterialApp(
+          title: "Praktikum 6",
+          debugShowCheckedModeBanner: false,
+          home: StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              } else if (snapshot.hasData) {
+                return mainMenu();
+              } else if (snapshot.hasError) {
+                return const Center(
+                  child: Text('Something went wrong!'),
+                );
+              } else {
+                return HomeScreen();
+              }
+            },
+          ),
+          navigatorKey: NAV_KEY,
+          onGenerateRoute: generateRoute,
+        ));
   }
 }

@@ -1,3 +1,4 @@
+import 'package:amuts_project/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 const List<String> list = <String>['Organik', 'Anorganik'];
@@ -24,7 +25,7 @@ class _LaporanSampah extends State<LaporanSampah> {
         backgroundColor: Color.fromRGBO(0, 185, 139, 1),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/mainmenu');
+            Navigator.pushNamed(context, rMainMenu);
           },
           icon: Icon(
             Icons.arrow_back,

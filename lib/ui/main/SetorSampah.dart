@@ -1,3 +1,4 @@
+import 'package:amuts_project/utils/routes.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class _SetorSampah extends State<SetorSampah> {
         backgroundColor: Color.fromRGBO(0, 185, 139, 1),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/mainmenu');
+            Navigator.pushNamed(context, rMainMenu);
           },
           icon: Icon(
             Icons.arrow_back,
@@ -38,31 +39,35 @@ class _SetorSampah extends State<SetorSampah> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Card(
+              color: Color.fromRGBO(255, 179, 0, 1),
               margin: EdgeInsets.all(8),
               child: SizedBox(
                 height: 100,
                 width: 343,
                 child: Padding(
                   padding: const EdgeInsets.all(14.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        radius: 41,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.asset('assets/images/amin.png'),
+                  child: Container(
+                    child: Row(
+                      
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 41,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(30),
+                            child: Image.asset('assets/images/amin.png'),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Solikhul Amin',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w700),
-                      ),
-                    ],
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Solikhul Amin',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -1,6 +1,11 @@
-import 'package:amuts_project/ui/Login.dart';
-import 'package:amuts_project/ui/MainMenu.dart';
-import 'package:amuts_project/ui/Register.dart';
+import 'package:amuts_project/ui/auth/forgetpassword.dart';
+import 'package:amuts_project/ui/HomeScreen.dart';
+import 'package:amuts_project/ui/auth/login.dart';
+import 'package:amuts_project/ui/auth/register.dart';
+import 'package:amuts_project/ui/main/LaporanSampah.dart';
+import 'package:amuts_project/ui/main/MainMenu.dart';
+import 'package:amuts_project/ui/main/SetorSampah.dart';
+import 'package:amuts_project/ui/auth/VerificationPage.dart';
 import 'package:flutter/material.dart';
 
 MaterialPageRoute _pageRoute(
@@ -20,8 +25,23 @@ Route? generateRoute(RouteSettings settings) {
     case rRegister:
       _route = _pageRoute(body: RegisterPageForm(), settings: settings);
       break;
-    case rHome:
+    case rMainMenu:
       _route = _pageRoute(body: mainMenu(), settings: settings);
+      break;
+    case rhomescreen:
+      _route = _pageRoute(body: HomeScreen(), settings: settings);
+      break;
+    case rforgetpassword:
+      _route = _pageRoute(body: forgetPasswordScreen(), settings: settings);
+      break;
+    case rverificationOTP:
+      _route = _pageRoute(body: VerificationOTP(), settings: settings);
+      break;
+    case rsetorSampah:
+      _route = _pageRoute(body: SetorSampah(), settings: settings);
+      break;
+    case rlaporanSampah:
+      _route = _pageRoute(body: LaporanSampah(), settings: settings);
       break;
   }
 
@@ -31,4 +51,9 @@ Route? generateRoute(RouteSettings settings) {
 final NAV_KEY = GlobalKey<NavigatorState>();
 const String rLogin = '/login';
 const String rRegister = '/Register';
-const String rHome = '/home';
+const String rMainMenu = '/mainmenu';
+const String rhomescreen = '/homescreen';
+const String rforgetpassword = '/forgetpassword';
+const String rverificationOTP = '/verificationOTP';
+const String rsetorSampah = '/setorsampah';
+const String rlaporanSampah = '/laporansampah';

@@ -1,3 +1,4 @@
+import 'package:amuts_project/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -16,7 +17,7 @@ class _forgetPasswordScreenState extends State<forgetPasswordScreen> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/login');
+              Navigator.pushNamed(context, rLogin);
             },
             icon: Icon(Icons.arrow_back),
           ),
@@ -52,7 +53,7 @@ class _forgetPasswordScreenState extends State<forgetPasswordScreen> {
                   backgroundColor: Color.fromRGBO(0, 185, 139, 1),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/verificationOTP');
+                  Navigator.pushNamed(context, rverificationOTP);
                 },
                 child: const Text(
                   "Send",

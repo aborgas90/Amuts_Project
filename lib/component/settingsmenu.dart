@@ -1,4 +1,7 @@
+import 'package:amuts_project/ui/HomeScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SettingsMenu extends StatefulWidget {
   SettingsMenu({Key? key}) : super(key: key);
@@ -21,7 +24,7 @@ class _SettingsMenu extends State<SettingsMenu> {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 color: Colors.white,
-                child: SizedBox(
+                child: const SizedBox(
                     width: double.infinity,
                     height: 45,
                     child: Row(
@@ -38,14 +41,14 @@ class _SettingsMenu extends State<SettingsMenu> {
                     )),
               ),
             ),
-            Divider(),
+            const Divider(),
             GestureDetector(
               behavior: HitTestBehavior.translucent,
               onTap: () {},
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 color: Colors.white,
-                child: SizedBox(
+                child: const SizedBox(
                     width: double.infinity,
                     height: 45,
                     child: Row(
@@ -62,14 +65,22 @@ class _SettingsMenu extends State<SettingsMenu> {
                     )),
               ),
             ),
-            Divider(),
+            const Divider(),
             GestureDetector(
               behavior: HitTestBehavior.translucent,
-              onTap: () {},
+              onTap: () {
+                GoogleSignIn().signOut();
+                  FirebaseAuth.instance.signOut().then((value) =>
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()),
+                          (route) => false));
+              },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 color: Colors.white,
-                child: SizedBox(
+                child: const SizedBox(
                     width: double.infinity,
                     height: 45,
                     child: Row(

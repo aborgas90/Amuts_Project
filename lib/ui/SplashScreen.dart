@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:amuts_project/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3),()=> Navigator.pushNamed(context, '/homescreen'));
+    Timer(const Duration(seconds: 3),
+        () => Navigator.pushNamed(context, rhomescreen));
   }
 
   @override
@@ -24,9 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image(image: AssetImage('assets/images/amutslogo.png'))
-          ],
+          children: [Image(image: AssetImage('assets/images/amutslogo.png'))],
         ),
       ),
     );
