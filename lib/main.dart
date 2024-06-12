@@ -10,9 +10,14 @@ import 'package:amuts_project/ui/VerificationPage.dart';
 import 'package:amuts_project/ui/comingsoon.dart';
 import 'package:amuts_project/ui/404.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

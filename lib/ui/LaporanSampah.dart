@@ -56,7 +56,7 @@ class _LaporanSampah extends State<LaporanSampah> {
                   Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Jenis Sampah"), Text("Anorgranik")],
+                    children: [Text("Jumlah Sampah"), Text("10 Kg")],
                   ),
                   Divider(),
                   SizedBox(

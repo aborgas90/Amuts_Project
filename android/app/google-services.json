@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1092674861696",
+    "firebase_url": "https://amuts-project-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "amuts-project",
+    "storage_bucket": "amuts-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092674861696:android:79ada35efff48e11380465",
+        "android_client_info": {
+          "package_name": "com.example.amuts_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092674861696-b4qdcc96v813u6nula78mr344eu2br29.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.amuts_project",
+            "certificate_hash": "31c32635897cb747da2bba779c7f1b8ef723b931"
+          }
+        },
+        {
+          "client_id": "1092674861696-25rpqmln3aqoakgdurs5e1v762cq9614.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3t18msLwTJDhYAnZtoi91UnkbQhYocug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092674861696-25rpqmln3aqoakgdurs5e1v762cq9614.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1092674861696-c5nop0q89rv3k231vq2ac7o60gaofvqk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.amutsProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
