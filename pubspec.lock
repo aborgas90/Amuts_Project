@@ -344,6 +344,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.0+1"
+<<<<<<< HEAD
   provider:
     dependency: transitive
     description:
@@ -352,6 +353,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.2"
+=======
+>>>>>>> origin/main
   sky_engine:
     dependency: transitive
     description: flutter

@@ -18,7 +18,7 @@ class _LaporanSampah extends State<LaporanSampah> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: ( const Text(
+        title: (const Text(
           'Laporan Sampah',
           style: TextStyle(color: Colors.white),
         )),
@@ -83,8 +83,8 @@ class _LaporanSampah extends State<LaporanSampah> {
                     ],
                   ),
                   SizedBox(
-            height: 5,
-          ),
+                    height: 5,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -97,8 +97,8 @@ class _LaporanSampah extends State<LaporanSampah> {
                     ],
                   ),
                   SizedBox(
-            height: 5,
-          ),
+                    height: 5,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -111,8 +111,8 @@ class _LaporanSampah extends State<LaporanSampah> {
                     ],
                   ),
                   SizedBox(
-            height: 5,
-          ),
+                    height: 5,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
