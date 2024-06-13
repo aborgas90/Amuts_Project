@@ -1,6 +1,7 @@
 import 'package:amuts_project/utils/routes.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 const List<String> list = <String>['Organik', 'Anorganik'];
 
@@ -13,13 +14,68 @@ class SetorSampah extends StatefulWidget {
 
 class _SetorSampah extends State<SetorSampah> {
   String dropdownValue = list.first;
+  final TextEditingController jumlahController = TextEditingController();
+  bool isSubmitting = false;
+
+  Future<void> _submitData() async {
+    if (jumlahController.text.isNotEmpty) {
+      setState(() {
+        isSubmitting = true;
+      });
+
+      try {
+        await FirebaseFirestore.instance.collection('setor_sampah').add({
+          'jenis_sampah': dropdownValue,
+          'jumlah_sampah': double.parse(jumlahController.text),
+          'timestamp': Timestamp.now(),
+        });
+        _showSuccessDialog();
+        // Reset form after successful submission
+        resetForm();
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Gagal menyimpan data: $e')),
+        );
+      } finally {
+        setState(() {
+          isSubmitting = false;
+        });
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Masukkan jumlah sampah!')),
+      );
+    }
+  }
+
+  void resetForm() {
+    setState(() {
+      dropdownValue = list.first;
+      jumlahController.clear();
+    });
+  }
+
+  void _showSuccessDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: SuccessDialog(),
+        );
+      },
+    );
+    // Auto close dialog after 2 seconds
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context).pop();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: ( const Text(
+        title: (const Text(
           'Setor Sampah',
           style: TextStyle(color: Colors.white),
         )),
@@ -48,7 +104,6 @@ class _SetorSampah extends State<SetorSampah> {
                   padding: const EdgeInsets.all(14.0),
                   child: Container(
                     child: Row(
-                      
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         CircleAvatar(
@@ -121,6 +176,7 @@ class _SetorSampah extends State<SetorSampah> {
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                   ),
                   TextFormField(
+                    controller: jumlahController,
                     // obscureText: !passInvisible,
                     decoration: InputDecoration(
                         prefixIcon: Icon(BootstrapIcons.boxes),
@@ -155,6 +211,33 @@ class _SetorSampah extends State<SetorSampah> {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class SuccessDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: Dialog(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.check_circle,
+              color: Colors.green,
+              size: 80,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Data berhasil disimpan!',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
     );
   }

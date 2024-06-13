@@ -134,7 +134,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   // Button Facebook
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                    },
                     child: const CircleAvatar(
                       radius: 28,
                       backgroundImage:
