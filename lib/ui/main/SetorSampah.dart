@@ -1,18 +1,17 @@
-import 'package:amuts_project/utils/routes.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-const List<String> list = <String>['Organik', 'Anorganik'];
+const List<String> list = <String>['Organik', 'Anorganik', 'B3'];
 
 class SetorSampah extends StatefulWidget {
   const SetorSampah({Key? key}) : super(key: key);
 
   @override
-  State<SetorSampah> createState() => _SetorSampah();
+  State<SetorSampah> createState() => _SetorSampahState();
 }
 
-class _SetorSampah extends State<SetorSampah> {
+class _SetorSampahState extends State<SetorSampah> {
   String dropdownValue = list.first;
   final TextEditingController jumlahController = TextEditingController();
   bool isSubmitting = false;
@@ -34,7 +33,7 @@ class _SetorSampah extends State<SetorSampah> {
         resetForm();
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal menyimpan data: $e')),
+          SnackBar(content: Text('Gagal menyimpan data')),
         );
       } finally {
         setState(() {
@@ -75,16 +74,16 @@ class _SetorSampah extends State<SetorSampah> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: (const Text(
+        title: const Text(
           'Setor Sampah',
           style: TextStyle(color: Colors.white),
-        )),
-        backgroundColor: Color.fromRGBO(0, 185, 139, 1),
+        ),
+        backgroundColor: const Color.fromRGBO(0, 185, 139, 1),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, rMainMenu);
+            Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
@@ -95,51 +94,62 @@ class _SetorSampah extends State<SetorSampah> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Card(
-              color: Color.fromRGBO(255, 179, 0, 1),
-              margin: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
+              color: const Color.fromRGBO(255, 179, 0, 1),
               child: SizedBox(
                 height: 100,
                 width: 343,
                 child: Padding(
                   padding: const EdgeInsets.all(14.0),
-                  child: Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          radius: 41,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Image.asset('assets/images/amin.png'),
-                          ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 41,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.asset('assets/images/amin.png'),
                         ),
-                        SizedBox(
-                          width: 10,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Text(
+                        'Solikhul Amin',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
                         ),
-                        Text(
-                          'Solikhul Amin',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w700),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
-            decoration: BoxDecoration(color: Colors.grey),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Jenis Sampah',
                     textAlign: TextAlign.start,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
@@ -167,21 +177,23 @@ class _SetorSampah extends State<SetorSampah> {
                       );
                     }).toList(),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text(
+                  const Text(
                     'Jumlah Sampah',
                     textAlign: TextAlign.start,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                   ),
                   TextFormField(
                     controller: jumlahController,
-                    // obscureText: !passInvisible,
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(BootstrapIcons.boxes),
-                        border: UnderlineInputBorder(),
-                        labelText: "Masukkan Jumlah/Kg"),
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(BootstrapIcons.boxes),
+                      border: UnderlineInputBorder(),
+                      labelText: "Masukkan Jumlah/Kg",
+                    ),
                   ),
                 ],
               ),
@@ -196,13 +208,15 @@ class _SetorSampah extends State<SetorSampah> {
                 height: 48,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          Color.fromRGBO(0, 185, 139, 1)),
-                      padding: MaterialStateProperty.all(EdgeInsets.all(2)),
-                      textStyle:
-                          MaterialStateProperty.all(TextStyle(fontSize: 17))),
-                  onPressed: () {},
-                  child: Text(
+                    backgroundColor: MaterialStateProperty.all(
+                      const Color.fromRGBO(0, 185, 139, 1),
+                    ),
+                    padding: MaterialStateProperty.all(const EdgeInsets.all(2)),
+                    textStyle: MaterialStateProperty.all(
+                        const TextStyle(fontSize: 17)),
+                  ),
+                  onPressed: isSubmitting ? null : _submitData,
+                  child: const Text(
                     'Submit',
                     style: TextStyle(color: Colors.white),
                   ),

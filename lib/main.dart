@@ -3,6 +3,7 @@ import 'package:amuts_project/bloc/register/register_cubit.dart';
 import 'package:amuts_project/firebase_options.dart';
 import 'package:amuts_project/ui/HomeScreen.dart';
 import 'package:amuts_project/ui/main/MainMenu.dart';
+import 'package:amuts_project/ui/main/crud.dart';
 import 'package:amuts_project/utils/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

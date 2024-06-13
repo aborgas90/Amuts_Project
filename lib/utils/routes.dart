@@ -8,6 +8,7 @@ import 'package:amuts_project/ui/main/LaporanSampah.dart';
 import 'package:amuts_project/ui/main/MainMenu.dart';
 import 'package:amuts_project/ui/main/SetorSampah.dart';
 import 'package:amuts_project/ui/auth/VerificationPage.dart';
+import 'package:amuts_project/ui/main/crud.dart';
 import 'package:flutter/material.dart';
 
 MaterialPageRoute _pageRoute(
@@ -51,6 +52,9 @@ Route? generateRoute(RouteSettings settings) {
     case rnotFound:
       _route = _pageRoute(body: NotFound(), settings: settings);
       break;
+    case reditData:
+      _route = _pageRoute(body: editData(), settings: settings);
+      break;
   }
 
   return _route;
@@ -67,3 +71,4 @@ const String rsetorSampah = '/setorsampah';
 const String rlaporanSampah = '/laporansampah';
 const String rcommingSoon = '/comingsoon';
 const String rnotFound = '/404';
+const String reditData = '/editData';

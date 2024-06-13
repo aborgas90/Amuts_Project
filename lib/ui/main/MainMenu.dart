@@ -110,7 +110,9 @@ class _mainMenu extends State<mainMenu> {
                                   height: 41,
                                   child: IconButton(
                                     color: Colors.white,
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, reditData);
+                                    },
                                     icon: Icon(BootstrapIcons.gear),
                                   ),
                                 ),
@@ -145,7 +147,7 @@ class _mainMenu extends State<mainMenu> {
                 height: 10,
               ),
 
-              // GridView
+              //listview
               Expanded(
                 child: Container(
                   color: Color.fromRGBO(192, 238, 226, 1),
@@ -399,13 +401,13 @@ class _mainMenu extends State<mainMenu> {
                     Navigator.pushNamed(context, '/context');
                     break;
                   case 1:
-                    Navigator.pushNamed(context, rcommingSoon);
+                    Navigator.pushNamed(context, '/comingsoon');
                     break;
                   case 2:
-                    Navigator.pushNamed(context, rcommingSoon);
+                    Navigator.pushNamed(context, '/comingsoon');
                     break;
                   case 3:
-                    Navigator.pushNamed(context, rcommingSoon);
+                    Navigator.pushNamed(context, '/comingsoon');
                     break;
                 }
               });
