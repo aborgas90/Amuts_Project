@@ -145,7 +145,7 @@ class _mainMenu extends State<mainMenu> {
                 height: 10,
               ),
 
-              //listview
+              // GridView
               Expanded(
                 child: Container(
                   color: Color.fromRGBO(192, 238, 226, 1),

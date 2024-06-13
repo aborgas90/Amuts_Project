@@ -13,93 +13,83 @@ class SettingsMenu extends StatefulWidget {
 class _SettingsMenu extends State<SettingsMenu> {
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      return Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () {},
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                color: Colors.white,
-                child: const SizedBox(
-                    width: double.infinity,
-                    height: 45,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 3),
-                          child: Icon(Icons.info_outline,
-                              size: 28, color: Colors.black),
-                        ),
-                        Text('Info',
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal, fontSize: 15)),
-                      ],
-                    )),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {},
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            color: Colors.white,
+            child: const SizedBox(
+              width: double.infinity,
+              height: 45,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 3),
+                    child: Icon(Icons.info_outline, size: 28, color: Colors.black),
+                  ),
+                  Text('Info', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15)),
+                ],
               ),
             ),
-            const Divider(),
-            GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () {},
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                color: Colors.white,
-                child: const SizedBox(
-                    width: double.infinity,
-                    height: 45,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 3),
-                          child: Icon(Icons.support_agent,
-                              size: 28, color: Colors.black),
-                        ),
-                        Text('Hubungi Admin',
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal, fontSize: 15)),
-                      ],
-                    )),
-              ),
-            ),
-            const Divider(),
-            GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () {
-                GoogleSignIn().signOut();
-                  FirebaseAuth.instance.signOut().then((value) =>
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()),
-                          (route) => false));
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                color: Colors.white,
-                child: const SizedBox(
-                    width: double.infinity,
-                    height: 45,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 3),
-                          child: Icon(Icons.logout_outlined,
-                              size: 28, color: Colors.black),
-                        ),
-                        Text('Logout',
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal, fontSize: 15)),
-                      ],
-                    )),
-              ),
-            ),
-          ],
+          ),
         ),
-      );
-    });
+        const Divider(),
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {},
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            color: Colors.white,
+            child: const SizedBox(
+              width: double.infinity,
+              height: 45,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 3),
+                    child: Icon(Icons.support_agent, size: 28, color: Colors.black),
+                  ),
+                  Text('Hubungi Admin', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15)),
+                ],
+              ),
+            ),
+          ),
+        ),
+        const Divider(),
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            GoogleSignIn().signOut();
+            FirebaseAuth.instance.signOut().then((value) =>
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                    (route) => false));
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            color: Colors.white,
+            child: const SizedBox(
+              width: double.infinity,
+              height: 45,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 3),
+                    child: Icon(Icons.logout_outlined, size: 28, color: Colors.black),
+                  ),
+                  Text('Logout', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15)),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
