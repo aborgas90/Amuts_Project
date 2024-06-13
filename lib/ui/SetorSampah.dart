@@ -33,7 +33,7 @@ class _SetorSampahState extends State<SetorSampah> {
         resetForm();
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal menyimpan data: $e')),
+          SnackBar(content: Text('Gagal menyimpan data')),
         );
       } finally {
         setState(() {

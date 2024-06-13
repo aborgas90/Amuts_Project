@@ -9,6 +9,7 @@ import 'package:amuts_project/ui/SplashScreen.dart';
 import 'package:amuts_project/ui/VerificationPage.dart';
 import 'package:amuts_project/ui/comingsoon.dart';
 import 'package:amuts_project/ui/404.dart';
+import 'package:amuts_project/ui/crud.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/laporansampah': (context) => const LaporanSampah(),
         '/comingsoon': (context) => const ComingSoon(),
         '/404': (context) => const NotFound(),
+        '/editData': (context) => const editData(),
       },
     );
   }
