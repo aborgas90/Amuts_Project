@@ -84,7 +84,7 @@ class _LaporanSampah extends State<LaporanSampah> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Jumlah Sampah"),
-                Text("${totalJumlah.toStringAsFixed(2)} Kg"),
+                Text("${totalJumlah.toStringAsFixed(0)} Kg"),
               ],
             ),
             Divider(),
@@ -92,7 +92,7 @@ class _LaporanSampah extends State<LaporanSampah> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Harga/kg"),
-                Text("IDR ${hargaPerKg.toStringAsFixed(2)}"),
+                Text("IDR ${hargaPerKg.toStringAsFixed(0)}"),
               ],
             ),
             Divider(),
@@ -100,7 +100,7 @@ class _LaporanSampah extends State<LaporanSampah> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Total Penghasilan"),
-                Text("IDR ${totalPenghasilan.toStringAsFixed(2)}"),
+                Text("IDR ${totalPenghasilan.toStringAsFixed(0)}"),
               ],
             ),
             SizedBox(height: 10),

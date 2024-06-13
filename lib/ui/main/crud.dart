@@ -95,7 +95,8 @@ class _editDataState extends State<editData> {
                         .doc(document.id)
                         .update({
                       'jenis_sampah': dropdownValue,
-                      'jumlah_sampah': double.parse(jumlahController.text),
+                      'jumlah_sampah': double.parse(jumlahController.text)
+                          .toStringAsFixed(0),
                       'timestamp': FieldValue.serverTimestamp(),
                     });
 
@@ -191,7 +192,8 @@ class _editDataState extends State<editData> {
                               await _firestore.collection('setor_sampah').add({
                                 'jenis_sampah': dropdownValue,
                                 'jumlah_sampah':
-                                    double.parse(jumlahController.text),
+                                    double.parse(jumlahController.text)
+                                        .toStringAsFixed(0),
                                 'timestamp': FieldValue.serverTimestamp(),
                               });
 
@@ -272,16 +274,21 @@ class _editDataState extends State<editData> {
                     children: filteredDocs.map((DocumentSnapshot document) {
                       Map<String, dynamic> data =
                           document.data()! as Map<String, dynamic>;
-                      Timestamp timestamp = data['timestamp'];
-                      DateTime dateTime = timestamp.toDate();
-                      String formattedDate =
-                          '${dateTime.day}-${dateTime.month}-${dateTime.year} ${dateTime.hour}:${dateTime.minute}';
+                      Timestamp? timestamp = data['timestamp'];
+                      DateTime? dateTime;
+                      String formattedDate = '';
+
+                      if (timestamp != null) {
+                        dateTime = timestamp.toDate();
+                        formattedDate =
+                            '${dateTime.day}-${dateTime.month}-${dateTime.year} ${dateTime.hour}:${dateTime.minute}';
+                      }
 
                       return Card(
                         color: const Color.fromRGBO(255, 159, 62, 1),
                         child: ListTile(
                           title: Text(
-                            '${data['jenis_sampah']} ($formattedDate)',
+                            '${data['jenis_sampah']} (${formattedDate.isNotEmpty ? formattedDate : 'No date'})',
                             style: const TextStyle(color: Colors.white),
                           ),
                           subtitle: Text(

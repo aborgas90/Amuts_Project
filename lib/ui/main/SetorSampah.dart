@@ -25,7 +25,8 @@ class _SetorSampahState extends State<SetorSampah> {
       try {
         await FirebaseFirestore.instance.collection('setor_sampah').add({
           'jenis_sampah': dropdownValue,
-          'jumlah_sampah': double.parse(jumlahController.text),
+          'jumlah_sampah':
+              double.parse(jumlahController.text).toStringAsFixed(0),
           'timestamp': Timestamp.now(),
         });
         _showSuccessDialog();
